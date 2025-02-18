@@ -1,0 +1,54 @@
+---
+
+env:
+  IMAGE_NAME: rockylinux-9
+  REGISTRY: ghcr.io
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - Dockerfile.${{ env.IMAGE_NAME }}
+      - .github/workflows/${{ env.IMAGE_NAME }}.yml
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+    steps:
+      -
+        uses: actions/checkout@v4
+      -
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      -
+        id: metadata
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+      -
+        id: push
+        uses: docker/build-push-action@v6
+        with:
+          file: Dockerfile.${{ env.IMAGE_NAME }}
+          push: true
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
+      -
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+          subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true
+
+...

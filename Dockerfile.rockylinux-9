@@ -1,0 +1,16 @@
+FROM docker.io/rockylinux:9
+
+LABEL org.opencontainers.image.description="Rocky Linux 9 for Ansible Molecule"
+LABEL org.opencontainers.image.source=https://github.com/idiv-biodiversity/ansible-molecule-containers
+
+# hadolint ignore=DL3033
+RUN <<EOF
+yum -y update
+yum -y install systemd python3 sudo
+yum clean all
+rm -f /lib/systemd/system/multi-user.target.wants/getty.target
+EOF
+
+VOLUME ["/sys/fs/cgroup"]
+
+CMD ["/lib/systemd/systemd"]
