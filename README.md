@@ -12,6 +12,7 @@ Molecule.
 
 - [image overview](https://github.com/orgs/idiv-biodiversity/packages?repo_name=ansible-molecule-images)
 - [![Arch Linux](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/archlinux.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/archlinux.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-archlinux:latest`
+- [![Rocky Linux 8](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-8:latest`
 
 
 [ansible-core support matrix]: https://docs.ansible.com/ansible-core/devel/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix
