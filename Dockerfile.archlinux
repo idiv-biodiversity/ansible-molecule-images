@@ -1,0 +1,23 @@
+FROM archlinux:latest
+
+LABEL org.opencontainers.image.source=https://github.com/idiv-biodiversity/ansible-molecule-containers
+
+RUN <<EOF
+pacman -Syu --noconfirm python
+yes | pacman -Scc
+
+rm -fv /etc/systemd/system/*.wants/*
+rm -fv /usr/lib/systemd/system/basic.target.wants/*
+rm -fv /usr/lib/systemd/system/graphical.target.wants/*
+rm -fv /usr/lib/systemd/system/local-fs.target.wants/*
+rm -fv /usr/lib/systemd/system/multi-user.target.wants/*
+rm -fv /usr/lib/systemd/system/sockets.target.wants/*udev*
+rm -fv /usr/lib/systemd/system/sockets.target.wants/*initctl*
+
+rm -frv /var/log/*
+rm -fv /var/lib/pacman/sync/*.db
+EOF
+
+VOLUME ["/sys/fs/cgroup"]
+
+CMD ["/usr/lib/systemd/systemd"]
