@@ -19,6 +19,8 @@ rm -fv /usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.servi
 
 systemctl set-default multi-user.target
 
+systemctl enable dbus.socket
+
 systemctl mask \
   dev-hugepages.mount \
   sys-fs-fuse-connections.mount \
