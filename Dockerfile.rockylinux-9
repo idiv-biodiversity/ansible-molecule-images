@@ -9,12 +9,12 @@ dnf install -y systemd python3.12
 dnf clean all
 
 rm -fv /etc/systemd/system/*.wants/*
-rm -fv /lib/systemd/system/multi-user.target.wants/*
-rm -fv /lib/systemd/system/local-fs.target.wants/*
-rm -fv /lib/systemd/system/sockets.target.wants/*udev*
-rm -fv /lib/systemd/system/sockets.target.wants/*initctl*
-rm -fv /lib/systemd/system/basic.target.wants/*
-rm -fv /lib/systemd/system/anaconda.target.wants/*
+rm -fv /usr/lib/systemd/system/anaconda.target.wants/*
+rm -fv /usr/lib/systemd/system/basic.target.wants/*
+rm -fv /usr/lib/systemd/system/local-fs.target.wants/*
+rm -fv /usr/lib/systemd/system/multi-user.target.wants/*
+rm -fv /usr/lib/systemd/system/sockets.target.wants/*initctl*
+rm -fv /usr/lib/systemd/system/sockets.target.wants/*udev*
 
 systemctl set-default multi-user.target
 
@@ -29,4 +29,4 @@ EOF
 
 VOLUME ["/sys/fs/cgroup"]
 
-CMD ["/lib/systemd/systemd"]
+CMD ["/usr/lib/systemd/systemd"]
