@@ -1,0 +1,64 @@
+---
+
+name: Ubuntu Jammy
+
+env:
+  DISTRO: ubuntu-jammy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - Dockerfile.ubuntu-jammy
+      - .github/workflows/ubuntu-jammy.yml
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+    steps:
+      -
+        name: fetch repo
+        uses: actions/checkout@v4
+      -
+        name: gather image metadata
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/idiv-biodiversity/ansible-molecule-${{ env.DISTRO }}
+          labels: |
+            org.opencontainers.image.title=ansible-molecule-${{ env.DISTRO }}
+            org.opencontainers.image.description=Ubuntu Jammy for Ansible Molecule
+          tags: |
+            type=raw,value=latest
+        id: metadata
+      -
+        name: login to ghcr
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      -
+        name: build and push image
+        uses: docker/build-push-action@v6
+        with:
+          file: Dockerfile.${{ env.DISTRO }}
+          push: true
+          labels: ${{ steps.metadata.outputs.labels }}
+          tags: |
+            ghcr.io/idiv-biodiversity/ansible-molecule-${{ env.DISTRO }}:latest
+        id: push
+      -
+        name: attest image
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ghcr.io/idiv-biodiversity/ansible-molecule-${{ env.DISTRO }}
+          subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true
+
+...
