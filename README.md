@@ -30,6 +30,7 @@ Images
 - [![Rocky Linux 9](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-9:latest`
 - [![Ubuntu Focal](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-focal:latest`
 - [![Ubuntu Jammy](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-jammy.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-jammy.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-jammy:latest`
+- [![Ubuntu Noble](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-noble.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-noble.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-noble:latest`
 
 
 Usage
