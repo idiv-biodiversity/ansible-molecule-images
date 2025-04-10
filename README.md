@@ -25,6 +25,7 @@ Images
 - [image overview](https://github.com/orgs/idiv-biodiversity/packages?repo_name=ansible-molecule-images)
 - [![Arch Linux](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/archlinux.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/archlinux.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-archlinux:latest`
 - [![Debian Bullseye](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bullseye.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bullseye.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-debian-bullseye:latest`
+- [![Debian Bookworm](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bookworm.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bookworm.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-debian-bookworm:latest`
 - [![Rocky Linux 8](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-8:latest`
 - [![Rocky Linux 9](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-9:latest`
 
