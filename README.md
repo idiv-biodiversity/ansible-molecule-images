@@ -28,6 +28,7 @@ Images
 - [![Debian Bookworm](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bookworm.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bookworm.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-debian-bookworm:latest`
 - [![Rocky Linux 8](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-8:latest`
 - [![Rocky Linux 9](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-9:latest`
+- [![Ubuntu Focal](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-focal:latest`
 
 
 Usage
