@@ -54,8 +54,44 @@ platforms:
     groups:
       - nosudo
 
+  - name: debian-bullseye
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-debian-bullseye:latest
+    pre_build_image: yes
+    groups:
+      - nosudo
+
+  - name: debian-bookworm
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-debian-bookworm:latest
+    pre_build_image: yes
+    groups:
+      - nosudo
+
+  - name: rockylinux-8
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-8:latest
+    pre_build_image: yes
+    groups:
+      - nosudo
+
   - name: rockylinux-9
     image: ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-9:latest
+    pre_build_image: yes
+    groups:
+      - nosudo
+
+  - name: ubuntu-focal
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-focal:latest
+    pre_build_image: yes
+    groups:
+      - nosudo
+
+  - name: ubuntu-jammy
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-jammy:latest
+    pre_build_image: yes
+    groups:
+      - nosudo
+
+  - name: ubuntu-noble
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-noble:latest
     pre_build_image: yes
     groups:
       - nosudo
@@ -82,6 +118,72 @@ platforms:
 
   - name: archlinux
     image: ghcr.io/idiv-biodiversity/ansible-molecule-archlinux:latest
+    command: /usr/lib/systemd/systemd
+    pre_build_image: yes
+    privileged: yes
+    cgroupns_mode: host
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - nosudo
+
+  - name: debian-bullseye
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-debian-bullseye:latest
+    command: /lib/systemd/systemd
+    pre_build_image: yes
+    privileged: yes
+    cgroupns_mode: host
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - nosudo
+
+  - name: debian-bookworm
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-debian-bookworm:latest
+    command: /usr/lib/systemd/systemd
+    pre_build_image: yes
+    privileged: yes
+    cgroupns_mode: host
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - nosudo
+
+  - name: rockylinux-9
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-9:latest
+    command: /usr/lib/systemd/systemd
+    pre_build_image: yes
+    privileged: yes
+    cgroupns_mode: host
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - nosudo
+
+  - name: ubuntu-focal
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-focal:latest
+    command: /usr/lib/systemd/systemd
+    pre_build_image: yes
+    privileged: yes
+    cgroupns_mode: host
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - nosudo
+
+  - name: ubuntu-jammy
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-jammy:latest
+    command: /usr/lib/systemd/systemd
+    pre_build_image: yes
+    privileged: yes
+    cgroupns_mode: host
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - nosudo
+
+  - name: ubuntu-noble
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-noble:latest
     command: /usr/lib/systemd/systemd
     pre_build_image: yes
     privileged: yes
