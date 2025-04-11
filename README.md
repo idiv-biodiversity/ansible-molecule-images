@@ -22,7 +22,9 @@ Table of Contents
 Images
 ------
 
-- [image overview](https://github.com/orgs/idiv-biodiversity/packages?repo_name=ansible-molecule-images)
+You can find all images [here at the packages page][images]. Here is a concise
+list with build status and image name:
+
 - [![Arch Linux](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/archlinux.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/archlinux.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-archlinux:latest`
 - [![Debian Bullseye](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bullseye.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bullseye.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-debian-bullseye:latest`
 - [![Debian Bookworm](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bookworm.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bookworm.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-debian-bookworm:latest`
@@ -204,3 +206,4 @@ provisioner:
 
 [ansible-core support matrix]: https://docs.ansible.com/ansible-core/devel/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix
 [molecule]: https://ansible.readthedocs.io/projects/molecule/
+[images]: https://github.com/orgs/idiv-biodiversity/packages?repo_name=ansible-molecule-images
