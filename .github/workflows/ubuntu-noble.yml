@@ -7,8 +7,10 @@ env:
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - Dockerfile.ubuntu-noble
+      - .github/workflows/ubuntu-noble.yml
+  pull_request:
     paths:
       - Dockerfile.ubuntu-noble
       - .github/workflows/ubuntu-noble.yml
@@ -23,9 +25,25 @@ jobs:
         with:
           dockerfile: Dockerfile.${{ env.DISTRO }}
 
-  release:
+  build:
     needs:
       - hadolint
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: fetch repo
+        uses: actions/checkout@v4
+      -
+        name: setup buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: build image
+        run: docker buildx build . --file Dockerfile.${{ env.DISTRO }}
+
+  release:
+    needs:
+      - build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: read
