@@ -84,7 +84,7 @@ jobs:
         id: push
       -
         name: attest image
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-name: ghcr.io/idiv-biodiversity/ansible-molecule-${{ env.DISTRO }}
           subject-digest: ${{ steps.push.outputs.digest }}
