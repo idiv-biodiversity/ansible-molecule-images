@@ -1,0 +1,20 @@
+FROM docker.io/debian:trixie-slim
+
+LABEL org.opencontainers.image.source=https://github.com/idiv-biodiversity/ansible-molecule-containers
+
+# hadolint ignore=DL3008
+RUN <<EOF
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update
+apt-get -y install --no-install-recommends dbus python3 systemd
+apt-get -y autoremove
+apt-get -y clean
+rm -frv /var/lib/apt/lists/*
+
+rm -fv /lib/systemd/system/multi-user.target.wants/getty.target
+EOF
+
+VOLUME ["/sys/fs/cgroup"]
+
+CMD ["/usr/lib/systemd/systemd"]

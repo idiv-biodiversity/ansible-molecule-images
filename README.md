@@ -28,6 +28,7 @@ list with build status and image name:
 - [![Arch Linux](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/archlinux.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/archlinux.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-archlinux:latest`
 - [![Debian Bullseye](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bullseye.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bullseye.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-debian-bullseye:latest`
 - [![Debian Bookworm](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bookworm.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-bookworm.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-debian-bookworm:latest`
+- [![Debian Trixie](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-trixie.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-trixie.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-debian-trixie:latest`
 - [![Rocky Linux 8](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-8:latest`
 - [![Rocky Linux 9](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-9:latest`
 - [![Ubuntu Focal](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-focal:latest`
@@ -64,6 +65,12 @@ platforms:
 
   - name: debian-bookworm
     image: ghcr.io/idiv-biodiversity/ansible-molecule-debian-bookworm:latest
+    pre_build_image: yes
+    groups:
+      - nosudo
+
+  - name: debian-trixie
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-debian-trixie:latest
     pre_build_image: yes
     groups:
       - nosudo
@@ -142,6 +149,17 @@ platforms:
 
   - name: debian-bookworm
     image: ghcr.io/idiv-biodiversity/ansible-molecule-debian-bookworm:latest
+    command: /usr/lib/systemd/systemd
+    pre_build_image: yes
+    privileged: yes
+    cgroupns_mode: host
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - nosudo
+
+  - name: debian-trixie
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-debian-trixie:latest
     command: /usr/lib/systemd/systemd
     pre_build_image: yes
     privileged: yes
