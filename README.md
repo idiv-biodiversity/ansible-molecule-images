@@ -31,6 +31,7 @@ list with build status and image name:
 - [![Debian Trixie](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-trixie.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/debian-trixie.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-debian-trixie:latest`
 - [![Rocky Linux 8](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-8.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-8:latest`
 - [![Rocky Linux 9](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-9.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-9:latest`
+- [![Rocky Linux 10](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-10.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/rockylinux-10.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-10:latest`
 - [![Ubuntu Focal](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-focal:latest`
 - [![Ubuntu Jammy](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-jammy.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-jammy.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-jammy:latest`
 - [![Ubuntu Noble](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-noble.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-noble.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-noble:latest`
@@ -83,6 +84,12 @@ platforms:
 
   - name: rockylinux-9
     image: ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-9:latest
+    pre_build_image: yes
+    groups:
+      - nosudo
+
+  - name: rockylinux-10
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-10:latest
     pre_build_image: yes
     groups:
       - nosudo
@@ -182,6 +189,17 @@ platforms:
 
   - name: rockylinux-9
     image: ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-9:latest
+    command: /usr/lib/systemd/systemd
+    pre_build_image: yes
+    privileged: yes
+    cgroupns_mode: host
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - nosudo
+
+  - name: rockylinux-10
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-rockylinux-10:latest
     command: /usr/lib/systemd/systemd
     pre_build_image: yes
     privileged: yes
