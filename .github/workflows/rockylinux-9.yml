@@ -20,7 +20,7 @@ jobs:
   hadolint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: hadolint/hadolint-action@v3.4.0
         with:
           dockerfile: Dockerfile.${{ env.DISTRO }}
@@ -32,7 +32,7 @@ jobs:
     steps:
       -
         name: fetch repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       -
         name: setup buildx
         uses: docker/setup-buildx-action@v4
@@ -53,7 +53,7 @@ jobs:
     steps:
       -
         name: fetch repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       -
         name: gather image metadata
         uses: docker/metadata-action@v6
