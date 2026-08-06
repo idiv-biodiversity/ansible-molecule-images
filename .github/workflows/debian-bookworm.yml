@@ -13,6 +13,8 @@ on:
       - Dockerfile.debian-bookworm
       - .github/workflows/docker.yml
       - .github/workflows/debian-bookworm.yml
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
   docker:

@@ -13,6 +13,8 @@ on:
       - Dockerfile.rockylinux-8
       - .github/workflows/docker.yml
       - .github/workflows/rockylinux-8.yml
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
   docker:

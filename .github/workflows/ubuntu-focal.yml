@@ -13,6 +13,8 @@ on:
       - Dockerfile.ubuntu-focal
       - .github/workflows/docker.yml
       - .github/workflows/ubuntu-focal.yml
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
   docker:

@@ -13,6 +13,8 @@ on:
       - Dockerfile.ubuntu-jammy
       - .github/workflows/docker.yml
       - .github/workflows/ubuntu-jammy.yml
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
   docker:

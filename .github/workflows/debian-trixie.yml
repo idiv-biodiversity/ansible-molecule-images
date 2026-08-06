@@ -13,6 +13,8 @@ on:
       - Dockerfile.debian-trixie
       - .github/workflows/docker.yml
       - .github/workflows/debian-trixie.yml
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
   docker:

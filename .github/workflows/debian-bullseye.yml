@@ -13,6 +13,8 @@ on:
       - Dockerfile.debian-bullseye
       - .github/workflows/docker.yml
       - .github/workflows/debian-bullseye.yml
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
   docker:
