@@ -35,6 +35,7 @@ list with build status and image name:
 - [![Ubuntu Focal](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-focal.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-focal:latest`
 - [![Ubuntu Jammy](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-jammy.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-jammy.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-jammy:latest`
 - [![Ubuntu Noble](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-noble.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-noble.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-noble:latest`
+- [![Ubuntu Resolute](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-resolute.yml/badge.svg)](https://github.com/idiv-biodiversity/ansible-molecule-images/actions/workflows/ubuntu-resolute.yml) `ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-resolute:latest`
 
 
 Usage
@@ -108,6 +109,12 @@ platforms:
 
   - name: ubuntu-noble
     image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-noble:latest
+    pre_build_image: yes
+    groups:
+      - nosudo
+
+  - name: ubuntu-resolute
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-resolute:latest
     pre_build_image: yes
     groups:
       - nosudo
@@ -233,6 +240,17 @@ platforms:
 
   - name: ubuntu-noble
     image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-noble:latest
+    command: /usr/lib/systemd/systemd
+    pre_build_image: yes
+    privileged: yes
+    cgroupns_mode: host
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - nosudo
+
+  - name: ubuntu-resolute
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-ubuntu-resolute:latest
     command: /usr/lib/systemd/systemd
     pre_build_image: yes
     privileged: yes

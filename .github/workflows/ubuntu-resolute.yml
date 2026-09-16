@@ -1,0 +1,28 @@
+---
+
+name: Ubuntu Resolute
+
+on:
+  push:
+    paths:
+      - Dockerfile.ubuntu-resolute
+      - .github/workflows/docker.yml
+      - .github/workflows/ubuntu-resolute.yml
+  pull_request:
+    paths:
+      - Dockerfile.ubuntu-resolute
+      - .github/workflows/docker.yml
+      - .github/workflows/ubuntu-resolute.yml
+  schedule:
+    - cron: '0 6 * * 1'
+
+jobs:
+  docker:
+    uses: $/.github/workflows/docker.yml
+    with:
+      name: Ubuntu Resolute
+      distro: ubuntu-resolute
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+...
